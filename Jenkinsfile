@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    environment {
+        def pip = "C:/Program Files/Python311/Scripts/pip"
+        def python = "C:/Program Files/Python311/python"
+    }
 
     stages {
         stage('clone from github'){
@@ -13,17 +18,18 @@ pipeline {
         }
         stage('build from github') {
             steps {
-                dir("CI_with_github"){
+                dir("CI_Jenkins"){
                     echo 'pip install -r requirements.txt'
-                    bat 'C:/Program^ Files/Python311/Scripts/pip install -r requirements.txt'
-                    bat 'C:/Program^ Files/Python311/python app.py'
+                    bat "${pip} install -r requirements.txt"
                 }
             }
         }
         stage('test from github') {
             steps {
-                echo 'running test1'
-                echo 'running test2'
+                dir("CI_Jenkins"){
+                    echo "pyhton -m unittest"
+                    bat "${python} -m unittest"
+                }
             }
         }
         stage('deploying from github'){
