@@ -7,7 +7,7 @@ pipeline {
                 dir("CI_with_github"){
                     echo 'clone git repo'
                     git branch: 'main', changelog: false, poll: false, url: 'https://github.com/eranda98/CI-with-github.git'
-                    bat 'pwd'
+                    bat 'dir'
                 }
             }
         }
@@ -15,7 +15,8 @@ pipeline {
             steps {
                 dir("CI_with_github"){
                     echo 'pip install -r requirements.txt'
-                    bat 'pip install -r requirements.txt; python app.py'
+                    bat 'pip install -r requirements.txt'
+                    bat 'python app.py'
                 }
             }
         }
@@ -27,7 +28,7 @@ pipeline {
         }
         stage('deploying from github'){
             steps{
-                echo 'deployement'
+                echo "deployement"
             }
         }
     }
