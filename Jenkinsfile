@@ -15,8 +15,8 @@ pipeline {
             steps {
                 dir("CI_with_github"){
                     echo 'pip install -r requirements.txt'
-                    bat "C:/Program Files/Python311/Scripts/pip install -r requirements.txt"
-                    bat "C:/Program Files/Python311/python app.py"
+                    bat 'C:/"Program Files"/Python311/Scripts/pip install -r requirements.txt'
+                    bat 'C:/"Program Files"/Python311/python app.py'
                 }
             }
         }
