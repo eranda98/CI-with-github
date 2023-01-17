@@ -18,7 +18,7 @@ pipeline {
         }
         stage('build from github') {
             steps {
-                dir("CI_Jenkins"){
+                dir("CI_with_github"){
                     echo 'pip install -r requirements.txt'
                     bat "${pip} install -r requirements.txt"
                 }
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('test from github') {
             steps {
-                dir("CI_Jenkins"){
+                dir("CI_with_github"){
                     echo "pyhton -m unittest"
                     bat "${python} -m unittest"
                 }
