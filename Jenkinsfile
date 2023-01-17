@@ -34,7 +34,11 @@ pipeline {
         }
         stage('deploying from github'){
             steps{
-                echo "deployement"
+                dir("CI_Jenkins"){
+                    echo "docker"
+                    bat 'docker build -t app .'
+                    bat 'docker run -dp 5001:5000 app'
+                }
             }
         }
     }
