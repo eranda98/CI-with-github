@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     environment {
-        def pip = "C:/Program^ Files/Python311/Scripts/pip"
-        def python = "C:/Program^ Files/Python311/python"
+        def pip = "C:/Users/erand/AppData/Local/Programs/Python/Python311/Scripts/pip"
+        def python = "C:/Users/erand/AppData/Local/Programs/Python/Python311/python"
     }
 
     stages {
